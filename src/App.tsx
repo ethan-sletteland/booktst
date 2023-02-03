@@ -1,24 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Button, IconButton } from "@mui/material";
+import React, { useState } from "react";
+import "./App.css";
+import CreateAccount from "./components/CreateAccount";
+import Home from "./components/Home";
+import DeleteIcon from "@mui/icons-material/DeleteForever";
 
 function App() {
+  const [username, setUsername] = useState(localStorage.getItem("username"));
+
+  const logout = () => {
+    if (window.confirm("Are you sure you want to log out?")) {
+      localStorage.setItem("username", "");
+      setUsername("");
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="App-header">
+        Website
+        {username ? (
+          <div>
+            <Button
+              onClick={() => logout()}
+              variant="outlined"
+              color="error"
+              startIcon={<DeleteIcon />}
+            >
+              Log Out
+            </Button>
+          </div>
+        ) : null}
+      </h1>
+      {username ? (
+        <Home username={username}></Home>
+      ) : (
+        <CreateAccount setUsername={setUsername}></CreateAccount>
+      )}
     </div>
   );
 }
