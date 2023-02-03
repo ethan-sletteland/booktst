@@ -2,9 +2,6 @@
 
 ## Instructions
 
-**must complete exercise prior to sending. PLEASE DISCOURAGE CANDIDATES FROM USING REDUX IN EXERCISE SOLUTION. They recommend that candidates who aren't comfortable or don't have a lot of experience with react to submit the exercise in vanillaJS.
-**Sule looks for people who demonstrate state management.
-
 EXERCISE:
 Please create a user signup form prototype. Preference is for the code to be done using Reactjs, but you can also feel free to use vanillajs. TST is currently utilizing reactjs v16.8 for development.
 
