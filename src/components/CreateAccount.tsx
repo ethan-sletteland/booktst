@@ -15,7 +15,11 @@ function CreateAccount(props: {
       setError("NO_USERNAME");
       return false;
     }
-    if (!password || password !== password2) {
+    if (!password) {
+      setError("NO_PASSWORD");
+      return false;
+    }
+    if (password !== password2) {
       setError("PASSWORD_MATCH");
       return false;
     }
@@ -26,6 +30,7 @@ function CreateAccount(props: {
   const LoginErrors: any = {
     PASSWORD_MATCH: "Your passwords don't match",
     NO_USERNAME: "Username cannot be blank",
+    NO_PASSWORD: "Password cannot be blank",
   };
 
   return (
